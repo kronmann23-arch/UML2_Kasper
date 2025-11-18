@@ -231,6 +231,7 @@ Console.WriteLine("-------------------------------------------------------------
 try
 {
     VIPCustomer vip = new VIPCustomer("Kasper", "8383883", "Gade 11", 100);
+    
 
 }
 catch (TooHighDiscountException thde)

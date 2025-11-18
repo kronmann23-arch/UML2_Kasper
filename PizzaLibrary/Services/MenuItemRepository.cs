@@ -88,9 +88,9 @@ namespace PizzaLibrary.Services
         }
 
 
-        public MenuItem GetMostExpensiveItem(MenuType type)
+        public MenuItem? GetMostExpensiveItem(MenuType type)
         {
-            MenuItem mostExpensive = null;
+            MenuItem? mostExpensive = null;
             double highestPrice = 0;
             //List<MenuItem> itemsToShearch = GetMenuType(type);
             foreach (MenuItem item in _menuItemlist)
@@ -111,9 +111,9 @@ namespace PizzaLibrary.Services
 
         }
         
-        public MenuItem GetMostExpensivePizza()
+        public MenuItem? GetMostExpensivePizza()
         {
-            MenuItem mostExpensive = null;
+            MenuItem? mostExpensive = null;
             double highestPrice = 0;
 
             foreach (MenuItem item in _menuItemlist)
