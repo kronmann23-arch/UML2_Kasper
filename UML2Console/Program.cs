@@ -126,6 +126,11 @@ foreach (Customer c in clubmembers)
 Console.WriteLine("Finder alle kunder fra Roskilde");
 Console.WriteLine("---------------------------------------------------------------------");
 cRepo.GetAllCustomersFromRoskilde();
+List<Customer> customers = cRepo.GetAllCustomersFromRoskilde();
+foreach(Customer c in customers)
+{
+    Console.WriteLine(c.ToString());
+}
 Console.WriteLine();
 
 //Test af GetMenuType metoden
@@ -221,17 +226,17 @@ catch(MenuItemNameExist mine)
 Console.WriteLine();
 
 //Test af try og catch af TooHighDiscountException
-//Console.WriteLine("Tester TooHighDiscountException");
-//Console.WriteLine("---------------------------------------------------------------------");
-//try
-//{
-//    VIPCustomer vip = new VIPCustomer("Kasper", "8383883", "Gade 11", 100);
-    
-//}
-//catch(TooHighDiscountException thde)
-//{
-//    Console.WriteLine($"Fejl: {thde.Message}");
-//}
+Console.WriteLine("Tester TooHighDiscountException");
+Console.WriteLine("---------------------------------------------------------------------");
+try
+{
+    VIPCustomer vip = new VIPCustomer("Kasper", "8383883", "Gade 11", 100);
+
+}
+catch (TooHighDiscountException thde)
+{
+    Console.WriteLine($"Fejl: {thde.Message}");
+}
 
 
 

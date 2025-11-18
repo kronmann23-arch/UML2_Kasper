@@ -92,7 +92,7 @@ namespace PizzaLibrary.Services
                 if (customer.Address == "Roskilde")
                 {
                     roskildeC.Add(customer);
-                    Console.WriteLine(customer);
+                    //Console.WriteLine(customer);
                 }
             }
             return roskildeC;
