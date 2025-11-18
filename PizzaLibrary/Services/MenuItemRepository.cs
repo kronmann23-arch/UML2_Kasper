@@ -22,25 +22,24 @@ namespace PizzaLibrary.Services
         }
         public void AddMenuItem(MenuItem menuItem)
         {
+            MenuItemNameExist(menuItem);
+            _menuItemlist.Add(menuItem);
+            
+        }
+        public void MenuItemNameExist(MenuItem menuItem)
+        {
             for (int i = 0; i < _menuItemlist.Count; i++)
             {
                 if (_menuItemlist[i].Name == menuItem.Name)
                 {
-                    throw new MenuItemNameExist($"MenuItem med nummer {menuItem.Name} findes allerede på menuen");
+                    throw new MenuItemNameExist($"MenuItem med navn {menuItem.Name} findes allerede på menuen");
                 }
             }
-            _menuItemlist.Add(menuItem);
         }
 
         public List<MenuItem> GetAll()
         {
-            List<MenuItem> mReturnList = new List<MenuItem>();
-            foreach (MenuItem c in _menuItemlist)
-            {
-                mReturnList.Add(c);
-            }
-            return mReturnList;
-
+            return _menuItemlist;
         }
 
         public MenuItem GetMenuItemByNo(int no)
@@ -82,7 +81,7 @@ namespace PizzaLibrary.Services
                 if (t.TheMenuType == type)
                 {
                     menuType.Add(t);
-                    Console.WriteLine(t);
+                    
                 }
             }
             return menuType;
@@ -121,6 +120,7 @@ namespace PizzaLibrary.Services
             {
                 if (item.TheMenuType.ToString().StartsWith("PIZZE"))
                 {
+
                     if (item.Price > highestPrice)
                     {
                         highestPrice = item.Price;

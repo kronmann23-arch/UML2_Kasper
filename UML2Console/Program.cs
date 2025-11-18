@@ -50,6 +50,9 @@ cRepo.RemoveCustomer("13131313");
 cRepo.PrintAllCustomers();
 Console.WriteLine();
 
+
+
+
 //-------------------------------------------------------------------------------------------------------------
 
 
@@ -88,6 +91,8 @@ foreach (MenuItem mI in allmenuitems)
 }
 Console.WriteLine();
 
+
+
 //Tester GetMenuItemByNo metoden
 Console.WriteLine("Leder efter menuelement nr.1 på menuen");
 Console.WriteLine("---------------------------------------------------------------------");
@@ -109,10 +114,13 @@ Console.WriteLine();
 //-------------------------------------------------------------------------------------------------------------
 
 //Test af GetAllClubMembers metoden
-Console.WriteLine("Finder alle ClubMembers i kundekaroteket");
+Console.WriteLine("Leder efter clubmembers og printer dem ud");
 Console.WriteLine("---------------------------------------------------------------------");
-cRepo.GetAllClubMembers();
-Console.WriteLine();
+List<Customer> clubmembers = cRepo.GetAllClubMembers();
+foreach (Customer c in clubmembers)
+{
+    Console.WriteLine(c.ToString());
+}
 
 //Test af GetAllCustomersFromRoskilde metoden
 Console.WriteLine("Finder alle kunder fra Roskilde");
@@ -123,8 +131,23 @@ Console.WriteLine();
 //Test af GetMenuType metoden
 Console.WriteLine("Finder og udprinter alle MenuItems med MenuType PIZZECLASSSICHE");
 Console.WriteLine("---------------------------------------------------------------------");
-mIRepo.GetMenuType(MenuType.PIZZECLASSSICHE);
+List<MenuItem> menuItems1 = mIRepo.GetMenuType(MenuType.PIZZECLASSSICHE);
+foreach(MenuItem m in menuItems1)
+{
+    Console.WriteLine(m.ToString());
+}
 Console.WriteLine();
+//lavet som forloop istedet
+Console.WriteLine("Finder og udprinter alle MenuItems med MenuType PIZZECLASSSICHE");
+Console.WriteLine("---------------------------------------------------------------------");
+List<MenuItem> menuItems2 = mIRepo.GetMenuType(MenuType.PIZZECLASSSICHE);
+for (int i =0 ; i < menuItems2.Count; i++)
+{
+    Console.WriteLine(menuItems2[i].ToString());
+}
+Console.WriteLine();
+//Lavet som forloop istedet
+
 
 
 //Test af GetMostExpensiveItem metoden
@@ -198,17 +221,17 @@ catch(MenuItemNameExist mine)
 Console.WriteLine();
 
 //Test af try og catch af TooHighDiscountException
-Console.WriteLine("Tester TooHighDiscountException");
-Console.WriteLine("---------------------------------------------------------------------");
-try
-{
-    VIPCustomer vip = new VIPCustomer("Kasper", "8383883", "Gade 11", 100);
+//Console.WriteLine("Tester TooHighDiscountException");
+//Console.WriteLine("---------------------------------------------------------------------");
+//try
+//{
+//    VIPCustomer vip = new VIPCustomer("Kasper", "8383883", "Gade 11", 100);
     
-}
-catch(TooHighDiscountException thde)
-{
-    Console.WriteLine($"Fejl: {thde.Message}");
-}
+//}
+//catch(TooHighDiscountException thde)
+//{
+//    Console.WriteLine($"Fejl: {thde.Message}");
+//}
 
 
 

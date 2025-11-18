@@ -22,16 +22,19 @@ namespace PizzaLibrary.Services
         }
         public void AddCustomer(Customer customer)
         {
-            foreach (var existingcustomer in _customers)
+            ////foreach (Customer existingcustomer in _customers.Values)
+            ////{
+            //    if (existingcustomer.Mobile == customer.Mobile)
+            //    {
+            //        throw new CustomerMobileNumberExist($"Mobilnummeret {customer.Mobile} findes allerede i Kundekaroteket.");
+            //    }
+
+
+            //}
+            if (_customers.ContainsKey(customer.Mobile))
             {
-                if (existingcustomer.Key == customer.Mobile)
-                {
-                    throw new CustomerMobileNumberExist($"Mobilnummeret {customer.Mobile} findes allerede i Kundekaroteket.");
-                }
-              
-
+                throw new CustomerMobileNumberExist($"Mobilnummeret {customer.Mobile} findes allerede i Kundekaroteket.");
             }
-
             _customers.Add(customer.Mobile, customer);
         }
         public List<Customer> GetAll()
@@ -75,7 +78,6 @@ namespace PizzaLibrary.Services
                 if (customer.ClubMember)
                 {
                     clubMembers.Add(customer);
-                    Console.WriteLine(customer);
                 }
                
             }
