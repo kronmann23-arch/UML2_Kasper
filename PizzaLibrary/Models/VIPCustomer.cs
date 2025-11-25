@@ -12,7 +12,7 @@ namespace PizzaLibrary.Models
         public int Discount{ get; set; }
         public VIPCustomer(string name, string mobile, string address, int discount) : base(name, mobile, address)
         {
-            if (Discount > 25)
+            if (discount > 25)
             {
                 throw new TooHighDiscountException($"Rabatten på {discount}% er for høj, maksimal discount er 25%");
             }

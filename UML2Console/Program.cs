@@ -230,8 +230,8 @@ Console.WriteLine("Tester TooHighDiscountException");
 Console.WriteLine("---------------------------------------------------------------------");
 try
 {
-    VIPCustomer vip = new VIPCustomer("Kasper", "8383883", "Gade 11", 100);
-    
+  
+    VIPCustomer vip2=new VIPCustomer("Kasper", "8383883", "Gade 11",30 );
 
 }
 catch (TooHighDiscountException thde)
