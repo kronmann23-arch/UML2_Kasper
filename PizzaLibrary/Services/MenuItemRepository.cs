@@ -22,19 +22,22 @@ namespace PizzaLibrary.Services
         }
         public void AddMenuItem(MenuItem menuItem)
         {
-            MenuItemNameExist(menuItem);
-            _menuItemlist.Add(menuItem);
-            
-        }
-        public void MenuItemNameExist(MenuItem menuItem)
-        {
-            for (int i = 0; i < _menuItemlist.Count; i++)
+            if (!MenuItemNameExist(menuItem.Name))
             {
-                if (_menuItemlist[i].Name == menuItem.Name)
+                _menuItemlist.Add(menuItem);
+            }
+
+        }
+        private bool MenuItemNameExist(string name)
+        {
+            foreach (MenuItem m in _menuItemlist)
+            {
+                if (m.Name == name)
                 {
-                    throw new MenuItemNameExist($"MenuItem med navn {menuItem.Name} findes allerede på menuen");
+                    return true;
                 }
             }
+            return false;
         }
 
         public List<MenuItem> GetAll()
@@ -42,7 +45,7 @@ namespace PizzaLibrary.Services
             return _menuItemlist;
         }
 
-        public MenuItem? GetMenuItemByNo(int no)
+        public MenuItem GetMenuItemByNo(int no)
         {
             foreach (MenuItem i in _menuItemlist)
             {
@@ -72,6 +75,15 @@ namespace PizzaLibrary.Services
                     return;
                 }
             }
+
+            //Alternativt:
+        
+            //if (GetMenuItemByNo(no)!=null)
+            //{
+            //    _menuItemlist.Remove(GetMenuItemByNo(no));
+            //}
+           
+            
         }
         public List<MenuItem> GetMenuType(MenuType type)
         {

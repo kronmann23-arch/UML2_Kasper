@@ -45,6 +45,7 @@ namespace PizzaLibrary.Services
                 cReturnList.Add(c);
             }
             return cReturnList;
+            //return _customers.Values.ToList();
         }
 
         public Customer GetCustomerByMobile(string mobile)
