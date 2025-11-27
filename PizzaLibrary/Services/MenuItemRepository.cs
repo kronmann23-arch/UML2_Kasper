@@ -87,16 +87,16 @@ namespace PizzaLibrary.Services
         }
         public List<MenuItem> GetMenuType(MenuType type)
         {
-            List<MenuItem> menuType = new List<MenuItem>();
+            List<MenuItem> menuTypes = new List<MenuItem>();
             foreach (MenuItem t in _menuItemlist)
             {
                 if (t.TheMenuType == type)
                 {
-                    menuType.Add(t);
+                    menuTypes.Add(t);
                     
                 }
             }
-            return menuType;
+            return menuTypes;
         }
 
 
@@ -169,6 +169,7 @@ namespace PizzaLibrary.Services
                 Console.WriteLine($"--- {group.Key} ---");
                 foreach (var menuItem in group.Value)
                 {
+                    Console.WriteLine($"Nummer: {menuItem.No}");
                     Console.WriteLine($"Navn:{menuItem.Name}");
                     Console.WriteLine($"Ingredienser:{menuItem.Description}");
                     Console.WriteLine($"Pris:{menuItem.Price} kr.-");
