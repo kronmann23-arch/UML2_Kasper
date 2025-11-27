@@ -215,23 +215,23 @@ catch (Exception exp)
 }
 Console.WriteLine();
 
-//Test af try og catch af MenuItemNameExistException
-Console.WriteLine("Tester MenuItemNameExistException");
-Console.WriteLine("---------------------------------------------------------------------");
-try
-{
-    mIRepo.AddMenuItem(new MenuItem("Cola", 20, "Light", MenuType.TILBEHØR));
-    mIRepo.AddMenuItem(new MenuItem("Cola", 30, "Zero", MenuType.TILBEHØR));
-}
-catch(MenuItemNameExist mine)
-{
-    Console.WriteLine($"Fejl: {mine.Message}");
-}
-catch (Exception exp)
-{
-    Console.WriteLine(exp.Message);
-}
-Console.WriteLine();
+////Test af try og catch af MenuItemNameExistException
+//Console.WriteLine("Tester MenuItemNameExistException");
+//Console.WriteLine("---------------------------------------------------------------------");
+//try
+//{
+//    mIRepo.AddMenuItem(new MenuItem("Cola", 20, "Light", MenuType.TILBEHØR));
+//    mIRepo.AddMenuItem(new MenuItem("Cola", 30, "Zero", MenuType.TILBEHØR));
+//}
+//catch(MenuItemNameExist mine)
+//{
+//    Console.WriteLine($"Fejl: {mine.Message}");
+//}
+//catch (Exception exp)
+//{
+//    Console.WriteLine(exp.Message);
+//}
+//Console.WriteLine();
 
 //Test af try og catch af InvalidDiscountEception
 Console.WriteLine("Tester InvalidDiscountEception");
