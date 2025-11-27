@@ -90,10 +90,10 @@ namespace PizzaLibrary.Services
             List<Customer> roskildeC = new List<Customer>();
             foreach(Customer customer in _customers.Values)
             {
-                if (customer.Address == "Roskilde")
+                if (customer.Address.Contains("Roskilde"))
                 {
                     roskildeC.Add(customer);
-                    //Console.WriteLine(customer);
+                  
                 }
             }
             return roskildeC;
