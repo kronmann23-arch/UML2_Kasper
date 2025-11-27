@@ -209,6 +209,10 @@ catch (CustomerMobileNumberExist cmne)
 {
     Console.WriteLine($"Fejl: {cmne.Message}");
 }
+catch (Exception exp)
+{
+    Console.WriteLine(exp.Message);
+}
 Console.WriteLine();
 
 //Test af try og catch af MenuItemNameExistException
@@ -223,26 +227,46 @@ catch(MenuItemNameExist mine)
 {
     Console.WriteLine($"Fejl: {mine.Message}");
 }
+catch (Exception exp)
+{
+    Console.WriteLine(exp.Message);
+}
 Console.WriteLine();
 
-//Test af try og catch af TooHighDiscountException
-Console.WriteLine("Tester TooHighDiscountException");
+//Test af try og catch af InvalidDiscountEception
+Console.WriteLine("Tester InvalidDiscountEception");
 Console.WriteLine("---------------------------------------------------------------------");
 try
 {
   
-    VIPCustomer vip2=new VIPCustomer("Kasper", "8383883", "Gade 11",30 );
+    VIPCustomer vip2=new VIPCustomer("Kasper", "8383883", "Gade 11",26 );
+    vip2.Discount = 26;
 
 }
-catch (TooHighDiscountException thde)
+catch (InvalidDiscountException ide)
 {
-    Console.WriteLine($"Fejl: {thde.Message}");
+    Console.WriteLine($"Fejl: {ide.Message}");
 }
-
+catch (Exception exp)
+{
+    Console.WriteLine(exp.Message);
+}
+Console.WriteLine();
 
 
 
 //-------------------------------------------------------------------------------------------------------------
+//Test af CompanyInfo som singleton
+Console.WriteLine("Tester CompanyInfo som singleton");
+Console.WriteLine("---------------------------------------------------------------------");
+CompanyInfo c1 = CompanyInfo.Instance;
+
+
+c1.Name = "Big Mamma";
+
+Console.WriteLine(c1.Name);
+
+//CompanyInfo c2 = new CompanyInfo();
 
 
 
